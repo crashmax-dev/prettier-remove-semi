@@ -1,20 +1,17 @@
-import prettier from 'prettier/parser-typescript'
+import type { Plugin } from 'prettier'
 
-const TypeScript = prettier.parsers.typescript
-
-function typescriptParser(): typeof TypeScript {
-  return {
-    ...TypeScript,
-    preprocess(text, options) {
-      console.log(text)
-      return text
+const plugin: Plugin = {
+  printers: {
+    typescript: {
+      insertPragma(text) {
+        return text.replace(/( ;)/g, '  ')
+      },
+      print(path, options, print, args?) {
+        const value = path.getValue()
+        return value.replace(/( ;)/g, '  ')
+      }
     }
   }
 }
 
-export default {
-  name: 'prettier-remove-semi',
-  parsers: {
-    typescript: typescriptParser()
-  }
-}
+export default plugin

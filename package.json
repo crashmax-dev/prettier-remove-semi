@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "test:jsx": "prettier --plugin . mock/func.tsx",
-    "test:iife": "prettier --plugin . mock/iife.ts"
+    "test:jsx": "prettier --semi=false --plugin . mock/jsx.tsx",
+    "test:iife": "prettier --semi=false --plugin . mock/iife.ts"
   },
   "devDependencies": {
     "@crashmax/tsconfig": "^1.0.2",
