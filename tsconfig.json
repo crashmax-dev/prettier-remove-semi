@@ -1,0 +1,12 @@
+{
+  "extends": "@crashmax/tsconfig",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "exclude": [
+    "mock"
+  ],
+  "include": [
+    "src"
+  ]
+}
